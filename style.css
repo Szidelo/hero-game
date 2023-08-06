@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&family=Raleway:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-red: #b34b42;
+  --color-gray-blue: #566970;
+  --color-black: #0f151a;
+  --color-white: #fff;
+  --color-blue: #266892;
+}
+
+h1:first-child {
+  margin: 40px 0 20px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+body {
+  background-image: url(./assets/backgroundImg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  font-family: "Raleway", sans-serif;
+}
+
+.main-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  font-weight: 600;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secundary {
+  background-color: #8b0000;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.heroes-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 40px;
+  width: 80vw;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
+  padding: 30px;
+  flex-basis: 30%;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+
+.hero-card h3 {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.hero-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+
+.hero-detail {
+  display: flex;
+}
+
+.hero-img-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.hero-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  object-fit: cover;
+  animation-name: avatar-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/* animation part  */
+
+@keyframes avatar-animation {
+  0% {
+    transform: scale(100%);
+  }
+  25% {
+    transform: scale(95%);
+  }
+  50% {
+    transform: scale(105%);
+  }
+  75% {
+    transform: scale(102%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+/* The element to apply the animation to */
+
+/* responsive part  */
+
+@media (max-width: 1200px) {
+  .heroes-container {
+    width: 70vw;
+    flex-direction: column;
+  }
+
+  .hero-card {
+    flex-direction: row;
+    column-gap: 40px;
+    width: 90%;
+    margin: 20px 0;
+  }
+
+  .hero-details {
+    justify-content: center;
+  }
+  .hero-details h3 {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroes-container {
+    width: 95vw;
+  }
+
+  .hero-card {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px 0;
+  }
+}
