@@ -122,9 +122,9 @@ let dwarf = new Dwarf("Thorin The Shield Breaker", 50);
 let sprite = new Sprite("Pinebrush BrightWing", 40);
 let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
-const epicFight = new Fight(dwarf, dragon);
+const epicFight = new Fight(dragon, sprite);
 
-console.log(epicFight)
+console.log(epicFight.go())
 
 
-winner.innerHTML = `<span>${epicFight.findWinner()}</span>`
+winner.innerHTML = `<span class="winner-result">${epicFight.findWinner()}</span>`

@@ -16,6 +16,7 @@
 
 h1:first-child {
   margin: 40px 0 20px;
+  font-size: 4em;
 }
 
 .material-symbols-outlined {
@@ -111,6 +112,18 @@ body {
   animation-name: avatar-animation;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+}
+
+.winner-result {
+  font-weight: 600;
+  font-size: 2em;
+  background-color: var(--color-blue);
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.show-winner {
+  margin-top: 40px;
 }
 
 /* animation part  */
