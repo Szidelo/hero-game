@@ -93,15 +93,17 @@ class Fight {
     findWinner() {
         let winner = '';
         if(this.hero1.hp > 0) {
-            winner = `${this.hero1.name} won with ${this.hero1.hp}!`;
+            winner = `${this.hero1.name} won the battle with ${this.hero1.hp} HP left!`;
             console.log(winner);
             return winner;
         } else if (this.hero2.hp > 0) {
-            winner = `${this.hero2.name} won with ${this.hero2.hp}!`;
+            winner = `${this.hero2.name} won the battle with ${this.hero2.hp} HP left!`;
             console.log(winner);
             return winner;
         } else {
+            winner = `No heroes left alive.`;
             console.log(`No heroes left alive.`);
+            return winner;
         }
     }
 
@@ -115,8 +117,7 @@ class Fight {
     }
 }
 
-let winner = document.getElementById('show-winner');
-
+// Heroes objects
 
 let dwarf = new Dwarf("Thorin The Shield Breaker", 50);
 let sprite = new Sprite("Pinebrush BrightWing", 40);
@@ -124,7 +125,33 @@ let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
 const epicFight = new Fight(dragon, sprite);
 
-console.log(epicFight.go())
 
+// Global Variables
 
-winner.innerHTML = `<span class="winner-result">${epicFight.findWinner()}</span>`
+const winner = document.getElementById('show-winner');
+const showHeroesBtn = document.getElementById('show-heroes');
+const startFightBtn = document.getElementById('start-fight');
+const heroSection = document.getElementById('hero-container');
+
+// Functions 
+
+function showElements(...elements) {
+    elements.forEach(element => {
+        element.classList.remove('hidden');
+    });
+}
+
+// Events
+
+showHeroesBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    showElements(startFightBtn, heroSection);
+    showHeroesBtn.classList.add('hidden');
+})
+
+startFightBtn.addEventListener('click', function() {
+    showElements(winner);
+    epicFight.go();
+    winner.innerHTML = `<span class="winner-result">${epicFight.findWinner()}</span>`;
+    startFightBtn.classList.add('hidden');
+})

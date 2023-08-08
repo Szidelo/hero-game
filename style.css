@@ -126,6 +126,13 @@ body {
   margin-top: 40px;
 }
 
+/* Dynamic classes  */
+
+.hidden {
+  display: none;
+}
+
+
 /* animation part  */
 
 @keyframes avatar-animation {
