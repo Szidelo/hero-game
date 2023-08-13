@@ -14,7 +14,6 @@ class Hero {
 
             if (chance > 0.5) {
                 battleDetails.innerHTML += `<span class="text-red">${this.name} flew away.</span>`;
-                console.log(`${this.name} flew away.`);
                 damage = 0;
             }
         }
@@ -22,14 +21,10 @@ class Hero {
         if (this.shild) {
             damage *= 0.8;
             battleDetails.innerHTML += `<span class="text-red">${this.name} defends with a shield.</span>`;
-            console.log(`${this.name} defends with a shield.`);
         }
 
         this.hp -= damage;
         battleDetails.innerHTML += `<span class="text-red">${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.</span>`;
-        console.log(
-            `${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.`
-        );
     }
 }
 
@@ -44,7 +39,6 @@ class Dwarf extends Hero {
     attack(otherHero) {
         let damage = 10;
         battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
-        console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
 }
@@ -58,7 +52,6 @@ class Sprite extends Hero {
     attack(otherHero) {
         let damage = 15;
         battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
-        console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
 }
@@ -73,7 +66,6 @@ class Dragon extends Hero {
     attack(otherHero) {
         let damage = 5;
         battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
-        console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
 }
@@ -101,15 +93,12 @@ class Fight {
         let winner = "";
         if (this.hero1.hp > 0) {
             winner = `${this.hero1.name} won the battle with ${this.hero1.hp} HP left!`;
-            console.log(winner);
             return winner;
         } else if (this.hero2.hp > 0) {
             winner = `${this.hero2.name} won the battle with ${this.hero2.hp} HP left!`;
-            console.log(winner);
             return winner;
         } else {
             winner = `No heroes left alive.`;
-            console.log(`No heroes left alive.`);
             return winner;
         }
     }
