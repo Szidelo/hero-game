@@ -13,7 +13,7 @@ class Hero {
             let chance = Math.random();
 
             if (chance > 0.5) {
-                battleDetails.innerHTML += `<span class="text-red">${this.name} flew away.</span>`
+                battleDetails.innerHTML += `<span class="text-red">${this.name} flew away.</span>`;
                 console.log(`${this.name} flew away.`);
                 damage = 0;
             }
@@ -21,12 +21,12 @@ class Hero {
 
         if (this.shild) {
             damage *= 0.8;
-            battleDetails.innerHTML += `<span class="text-red">${this.name} defends with a shield.</span>`
+            battleDetails.innerHTML += `<span class="text-red">${this.name} defends with a shield.</span>`;
             console.log(`${this.name} defends with a shield.`);
         }
 
         this.hp -= damage;
-        battleDetails.innerHTML += `<span class="text-red">${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.</span>`
+        battleDetails.innerHTML += `<span class="text-red">${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.</span>`;
         console.log(
             `${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.`
         );
@@ -43,7 +43,7 @@ class Dwarf extends Hero {
 
     attack(otherHero) {
         let damage = 10;
-        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`
+        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
         console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
@@ -57,7 +57,7 @@ class Sprite extends Hero {
 
     attack(otherHero) {
         let damage = 15;
-        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`
+        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
         console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
@@ -72,7 +72,7 @@ class Dragon extends Hero {
 
     attack(otherHero) {
         let damage = 5;
-        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`
+        battleDetails.innerHTML += `<span class="text-red">${this.name} attacked with damage: ${damage}.</span>`;
         console.log(`${this.name} attacked with damage: ${damage}.`);
         otherHero.attacked(damage);
     }
@@ -131,7 +131,7 @@ let sprite = new Sprite("Pinebrush BrightWing", 40);
 let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
 const epicFight = new Fight();
-console.log(epicFight)
+console.log(epicFight);
 
 // Global Variables
 
@@ -142,8 +142,8 @@ const heroSection = document.getElementById("hero-container");
 const dwarfBtn = document.getElementById("select-dwarf");
 const spriteBtn = document.getElementById("select-sprite");
 const dragonBtn = document.getElementById("select-dragon");
-const battleDetails = document.getElementById('battle-details');
-const detailsBtn =document.getElementById('details-btn');
+const battleDetails = document.getElementById("battle-details");
+const detailsBtn = document.getElementById("details-btn");
 
 // Functions
 
@@ -204,13 +204,11 @@ startFightBtn.addEventListener("click", function () {
     showElements(winner, detailsBtn);
     winner.innerHTML = `<span class="winner-result">${
         epicFight.hero1.name
-    } vs ${
-        epicFight.hero2.name
-    }</span>
+    } vs ${epicFight.hero2.name}</span>
     <span class="winner-result">${epicFight.findWinner()}</span>`;
     hideElements(startFightBtn, dwarfBtn, spriteBtn, dragonBtn);
 });
 
-detailsBtn.addEventListener('click', function () {
+detailsBtn.addEventListener("click", function () {
     showElements(battleDetails);
-})
+});
