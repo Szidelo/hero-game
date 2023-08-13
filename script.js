@@ -123,7 +123,7 @@ let dwarf = new Dwarf("Thorin The Shield Breaker", 50);
 let sprite = new Sprite("Pinebrush BrightWing", 40);
 let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
-const epicFight = new Fight(dragon, sprite);
+const epicFight = new Fight();
 
 
 // Global Variables
@@ -132,6 +132,9 @@ const winner = document.getElementById('show-winner');
 const showHeroesBtn = document.getElementById('show-heroes');
 const startFightBtn = document.getElementById('start-fight');
 const heroSection = document.getElementById('hero-container');
+const dwarfBtn = document.getElementById('select-dwarf');
+const spriteBtn = document.getElementById('select-sprite');
+const dragonBtn = document.getElementById('select-dragon');
 
 // Functions 
 
@@ -141,17 +144,55 @@ function showElements(...elements) {
     });
 }
 
+function hideElements(...elements) {
+    elements.forEach(element => {
+        element.classList.add('hidden');
+    });
+}
+
 // Events
 
-showHeroesBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+showHeroesBtn.addEventListener('click', function() {
     showElements(startFightBtn, heroSection);
-    showHeroesBtn.classList.add('hidden');
+    hideElements(showHeroesBtn);
 })
 
 startFightBtn.addEventListener('click', function() {
-    showElements(winner);
     epicFight.go();
+    showElements(winner);
     winner.innerHTML = `<span class="winner-result">${epicFight.findWinner()}</span>`;
-    startFightBtn.classList.add('hidden');
+    // hideElements(startFightBtn);
+})
+
+dwarfBtn.addEventListener('click', function() {
+    if(epicFight.hero1 === undefined) {
+       epicFight.hero1 = dwarf;
+    } else {
+        epicFight.hero2 = dwarf;
+    }
+    console.log(epicFight);
+    this.innerText = 'Hero Selected'
+    return epicFight;
+})
+
+spriteBtn.addEventListener('click', function() {
+    if(epicFight.hero1 === undefined) {
+        epicFight.hero1 = sprite;
+    } else {
+        epicFight.hero2 = sprite;
+    }
+    console.log(epicFight);
+    this.innerText = 'Hero Selected'
+    return epicFight;
+})
+
+dragonBtn.addEventListener('click', function() {
+    if(epicFight.hero1 === undefined) {
+        epicFight.hero1 = dragon;
+    } else {
+        epicFight.hero2 = dragon;
+    }
+    console.log(epicFight);
+    this.innerText = 'Hero Selected'
+    return epicFight;
 })
