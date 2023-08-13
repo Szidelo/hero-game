@@ -1,6 +1,6 @@
 // Parent Class
 
-class Hero{
+class Hero {
     constructor(name, hp) {
         this.name = name;
         this.hp = hp;
@@ -9,24 +9,25 @@ class Hero{
     }
 
     attacked(damage) {
-        if(this.canFly) {
+        if (this.canFly) {
             let chance = Math.random();
 
-            if(chance > 0.5) {
+            if (chance > 0.5) {
                 console.log(`${this.name} flew away.`);
                 damage = 0;
             }
         }
 
-        if(this.shild) {
+        if (this.shild) {
             damage *= 0.8;
             console.log(`${this.name} defends with a shield.`);
         }
 
         this.hp -= damage;
-        console.log(`${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.`);
+        console.log(
+            `${this.name} has been attacked. HP reduced by ${damage}. HP remaining: ${this.hp}.`
+        );
     }
-
 }
 
 // Child Classes
@@ -79,7 +80,7 @@ class Fight {
     }
 
     performAttack() {
-        if(this.turn === 0) {
+        if (this.turn === 0) {
             this.hero1.attack(this.hero2);
         } else {
             this.hero2.attack(this.hero1);
@@ -91,8 +92,8 @@ class Fight {
     }
 
     findWinner() {
-        let winner = '';
-        if(this.hero1.hp > 0) {
+        let winner = "";
+        if (this.hero1.hp > 0) {
             winner = `${this.hero1.name} won the battle with ${this.hero1.hp} HP left!`;
             console.log(winner);
             return winner;
@@ -111,7 +112,7 @@ class Fight {
         do {
             this.performAttack();
             this.changeTurn();
-        } while(this.hero1.hp > 0 && this.hero2.hp > 0);
+        } while (this.hero1.hp > 0 && this.hero2.hp > 0);
 
         this.findWinner();
     }
@@ -123,76 +124,81 @@ let dwarf = new Dwarf("Thorin The Shield Breaker", 50);
 let sprite = new Sprite("Pinebrush BrightWing", 40);
 let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
-const epicFight = new Fight();
+console.log(dwarf);
 
+const epicFight = new Fight();
 
 // Global Variables
 
-const winner = document.getElementById('show-winner');
-const showHeroesBtn = document.getElementById('show-heroes');
-const startFightBtn = document.getElementById('start-fight');
-const heroSection = document.getElementById('hero-container');
-const dwarfBtn = document.getElementById('select-dwarf');
-const spriteBtn = document.getElementById('select-sprite');
-const dragonBtn = document.getElementById('select-dragon');
+const winner = document.getElementById("show-winner");
+const showHeroesBtn = document.getElementById("show-heroes");
+const startFightBtn = document.getElementById("start-fight");
+const heroSection = document.getElementById("hero-container");
+const dwarfBtn = document.getElementById("select-dwarf");
+const spriteBtn = document.getElementById("select-sprite");
+const dragonBtn = document.getElementById("select-dragon");
 
-// Functions 
+// Functions
 
 function showElements(...elements) {
-    elements.forEach(element => {
-        element.classList.remove('hidden');
+    elements.forEach((element) => {
+        element.classList.remove("hidden");
     });
 }
 
 function hideElements(...elements) {
-    elements.forEach(element => {
-        element.classList.add('hidden');
+    elements.forEach((element) => {
+        element.classList.add("hidden");
     });
 }
 
 // Events
 
-showHeroesBtn.addEventListener('click', function() {
+showHeroesBtn.addEventListener("click", function () {
     showElements(startFightBtn, heroSection);
     hideElements(showHeroesBtn);
-})
+});
 
-startFightBtn.addEventListener('click', function() {
+startFightBtn.addEventListener("click", function () {
     epicFight.go();
     showElements(winner);
-    winner.innerHTML = `<span class="winner-result">${epicFight.findWinner()}</span>`;
-    // hideElements(startFightBtn);
-})
+    winner.innerHTML = `<span class="winner-result">${
+        epicFight.hero1.name
+    } vs ${
+        epicFight.hero2.name
+    }</span><span class="winner-result">${epicFight.findWinner()}</span>`;
+    hideElements(startFightBtn, dwarfBtn, spriteBtn, dragonBtn);
+});
 
-dwarfBtn.addEventListener('click', function() {
-    if(epicFight.hero1 === undefined) {
-       epicFight.hero1 = dwarf;
+dwarfBtn.addEventListener("click", function () {
+    if (epicFight.hero1 === undefined) {
+        epicFight.hero1 = dwarf;
     } else {
         epicFight.hero2 = dwarf;
     }
     console.log(epicFight);
-    this.innerText = 'Hero Selected'
+    this.innerText = "Hero Selected";
     return epicFight;
-})
+});
 
-spriteBtn.addEventListener('click', function() {
-    if(epicFight.hero1 === undefined) {
+spriteBtn.addEventListener("click", function () {
+    if (epicFight.hero1 === undefined) {
         epicFight.hero1 = sprite;
     } else {
         epicFight.hero2 = sprite;
     }
     console.log(epicFight);
-    this.innerText = 'Hero Selected'
+    this.innerText = "Hero Selected";
     return epicFight;
-})
+});
 
-dragonBtn.addEventListener('click', function() {
-    if(epicFight.hero1 === undefined) {
+dragonBtn.addEventListener("click", function () {
+    if (epicFight.hero1 === undefined) {
         epicFight.hero1 = dragon;
     } else {
         epicFight.hero2 = dragon;
     }
     console.log(epicFight);
-    this.innerText = 'Hero Selected'
+    this.innerText = "Hero Selected";
     return epicFight;
-})
+});
