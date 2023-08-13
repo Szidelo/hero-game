@@ -14,6 +14,9 @@
     --color-white: #fff;
     --color-blue: #266892;
 }
+html::-webkit-scrollbar {
+  display: none;
+}
 
 h1:first-child {
     margin: 40px 0 20px;
@@ -63,6 +66,11 @@ body {
     background-color: var(--color-red);
 }
 
+.text-red {
+  color: var(--color-red);
+  line-height: 25px;
+}
+
 .btn:hover {
     background-color: var(--color-white);
     color: var(--color-black);
@@ -85,7 +93,6 @@ body {
     flex-basis: 20%;
     margin: 40px 0;
     border-radius: 10px;
-    /* min-height: 420px; */
 }
 
 .hero-name {
@@ -139,16 +146,25 @@ body {
 .winner-result {
     font-weight: 600;
     font-size: 1.5em;
-    padding: 10px 30px;
+    padding: 10px 40px;
     text-align: center;
 }
 
 .show-winner {
-    margin-top: 15px;
+    margin: 15px 0;
     display: flex;
     flex-direction: column;
     background-color: var(--color-black-opacity);
     border-radius: 10px;
+}
+
+.battle-details {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    background-color: var(--color-black-opacity);
+    border-radius: 10px;
+    padding: 10px 40px;
 }
 
 /* Dynamic classes  */
@@ -176,8 +192,6 @@ body {
         transform: scale(100%);
     }
 }
-
-/* The element to apply the animation to */
 
 /* responsive part  */
 
