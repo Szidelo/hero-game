@@ -155,6 +155,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--color-black-opacity);
+    color: var(--color-blue);
     border-radius: 10px;
 }
 

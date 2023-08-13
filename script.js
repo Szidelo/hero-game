@@ -1,3 +1,15 @@
+// Global Variables
+
+const winner = document.getElementById("show-winner");
+const showHeroesBtn = document.getElementById("show-heroes");
+const startFightBtn = document.getElementById("start-fight");
+const heroSection = document.getElementById("hero-container");
+const dwarfBtn = document.getElementById("select-dwarf");
+const spriteBtn = document.getElementById("select-sprite");
+const dragonBtn = document.getElementById("select-dragon");
+const battleDetails = document.getElementById("battle-details");
+const detailsBtn = document.getElementById("details-btn");
+
 // Parent Class
 
 class Hero {
@@ -121,18 +133,6 @@ let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
 const epicFight = new Fight();
 console.log(epicFight);
-
-// Global Variables
-
-const winner = document.getElementById("show-winner");
-const showHeroesBtn = document.getElementById("show-heroes");
-const startFightBtn = document.getElementById("start-fight");
-const heroSection = document.getElementById("hero-container");
-const dwarfBtn = document.getElementById("select-dwarf");
-const spriteBtn = document.getElementById("select-sprite");
-const dragonBtn = document.getElementById("select-dragon");
-const battleDetails = document.getElementById("battle-details");
-const detailsBtn = document.getElementById("details-btn");
 
 // Functions
 
