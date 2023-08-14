@@ -8,7 +8,7 @@
 
 :root {
     --color-red: #b34b42;
-    --color-gray-blue: #566970;
+    --color-gray-blue: #788e96;
     --color-black: #0f151a;
     --color-black-opacity: #00000080;
     --color-white: #fff;
@@ -18,9 +18,16 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+.title {
+    background-color: var(--color-black-opacity);
+    margin: 20px 0;
+    width: 100vw;
+}
+
 h1:first-child {
-    margin: 40px 0 20px;
     font-size: 4em;
+    text-align: center;
+    color: var(--color-blue);
 }
 
 .material-symbols-outlined {
@@ -31,7 +38,7 @@ h1:first-child {
 }
 
 body {
-    background-image: url(./assets/backgroundImg.jpg);
+    background-image: url(./assets/backgroundImg2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--color-white);
@@ -49,6 +56,7 @@ body {
 .buttons {
     display: flex;
     gap: 10px;
+    margin: 10px 0;
 }
 
 .btn {
@@ -68,7 +76,8 @@ body {
 
 .text-red {
   color: var(--color-red);
-  line-height: 25px;
+  line-height: 20px;
+  margin-bottom: 10px;
 }
 
 .btn:hover {
@@ -81,7 +90,6 @@ body {
     align-items: center;
     justify-content: space-evenly;
     gap: 50px;
-    margin-top: 15px;
     width: 80vw;
 }
 
@@ -91,7 +99,7 @@ body {
     background-color: var(--color-black);
     padding: 30px;
     flex-basis: 20%;
-    margin: 40px 0;
+    margin: 20px 0;
     border-radius: 10px;
 }
 
@@ -115,7 +123,6 @@ body {
 
 .hero-detail {
     display: flex;
-    align-items: flex-end;
 }
 
 .select-buttons {

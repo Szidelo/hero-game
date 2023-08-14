@@ -5,9 +5,9 @@ const showHeroesBtn = document.getElementById("show-heroes");
 const startFightBtn = document.getElementById("start-fight");
 const heroSection = document.getElementById("hero-container");
 const dwarfBtn = document.getElementById("select-dwarf");
-const spriteBtn = document.getElementById("select-sprite");
+const daemonBtn = document.getElementById("select-sprite");
 const dragonBtn = document.getElementById("select-dragon");
-const battleDetails = document.getElementById("battle-details");
+const battleDetails = document.getElementById("battle-details"); 
 const detailsBtn = document.getElementById("details-btn");
 
 // Parent Class
@@ -55,7 +55,7 @@ class Dwarf extends Hero {
     }
 }
 
-class Sprite extends Hero {
+class Daemon extends Hero {
     constructor(name, hp) {
         super(name, hp);
         this.canFly = true;
@@ -128,10 +128,10 @@ class Fight {
 // Heroes objects
 
 let dwarf = new Dwarf("Thorin The Shield Breaker", 50);
-let sprite = new Sprite("Pinebrush BrightWing", 40);
+let daemon = new Daemon("Skarbrand the Exiled", 40);
 let dragon = new Dragon("Nozdormu The Timeless One", 60);
 
-const epicFight = new Fight();
+const epicFight = new Fight(); //dynamicaly populated with heroes later
 console.log(epicFight);
 
 // Functions
@@ -166,11 +166,11 @@ dwarfBtn.addEventListener("click", function () {
     return epicFight;
 });
 
-spriteBtn.addEventListener("click", function () {
+daemonBtn.addEventListener("click", function () {
     if (epicFight.hero1 === undefined) {
-        epicFight.hero1 = sprite;
+        epicFight.hero1 = daemon;
     } else {
-        epicFight.hero2 = sprite;
+        epicFight.hero2 = daemon;
     }
     console.log(epicFight);
     this.innerText = "Hero Selected";
