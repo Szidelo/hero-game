@@ -195,7 +195,7 @@ startFightBtn.addEventListener("click", function () {
         epicFight.hero1.name
     } vs ${epicFight.hero2.name}</span>
     <span class="winner-result">${epicFight.findWinner()}</span>`;
-    hideElements(startFightBtn, dwarfBtn, spriteBtn, dragonBtn);
+    hideElements(startFightBtn, dwarfBtn, daemonBtn, dragonBtn);
 });
 
 detailsBtn.addEventListener("click", function () {
