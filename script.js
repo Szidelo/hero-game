@@ -7,7 +7,7 @@ const heroSection = document.getElementById("hero-container");
 const dwarfBtn = document.getElementById("select-dwarf");
 const daemonBtn = document.getElementById("select-sprite");
 const dragonBtn = document.getElementById("select-dragon");
-const battleDetails = document.getElementById("battle-details"); 
+const battleDetails = document.getElementById("battle-details");
 const detailsBtn = document.getElementById("details-btn");
 
 // Parent Class
@@ -17,7 +17,7 @@ class Hero {
         this.name = name;
         this.hp = hp;
         this.canFly = false;
-        this.shild = false;
+        this.shield = false;
     }
 
     attacked(damage) {
@@ -25,13 +25,14 @@ class Hero {
             let chance = Math.random();
 
             if (chance > 0.5) {
+                // 50% chance of flying away and no damage taken
                 battleDetails.innerHTML += `<span class="text-red">${this.name} flew away.</span>`;
                 damage = 0;
             }
         }
 
-        if (this.shild) {
-            damage *= 0.8;
+        if (this.shield) {
+            damage *= 0.8; // takes only 80% of damage
             battleDetails.innerHTML += `<span class="text-red">${this.name} defends with a shield.</span>`;
         }
 
@@ -45,7 +46,7 @@ class Hero {
 class Dwarf extends Hero {
     constructor(name, hp) {
         super(name, hp);
-        this.shild = true;
+        this.shield = true;
     }
 
     attack(otherHero) {
@@ -72,7 +73,7 @@ class Dragon extends Hero {
     constructor(name, hp) {
         super(name, hp);
         this.canFly = true;
-        this.shild = true;
+        this.shield = true;
     }
 
     attack(otherHero) {
@@ -91,9 +92,11 @@ class Fight {
 
     performAttack() {
         if (this.turn === 0) {
-            this.hero1.attack(this.hero2);
+            this.hero1.attack(this.hero2); // there are only turn 0 and turn 1. in turn 0 hero1 attacks and hero 2 attacks in turn 1
+            console.log(`this turn is: ${this.turn} for hero1`);
         } else {
             this.hero2.attack(this.hero1);
+            console.log(`this turn is: ${this.turn} for hero2`);
         }
     }
 
