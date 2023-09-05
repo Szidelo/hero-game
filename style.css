@@ -203,6 +203,17 @@ body {
 
 /* responsive part  */
 
+@media (max-width: 1300px) {
+    .heroes-container {
+        justify-content: space-between;
+        
+    }
+
+    .hero-card {
+        flex-basis: 30%;
+    }
+}
+
 @media (max-width: 1200px) {
     .heroes-container {
         width: 70vw;
